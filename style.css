@@ -1,0 +1,367 @@
+
+/* ==============================
+   CV CÁ NHÂN - NGUYỄN DUY HÙNG
+   Lớp: CNTT-K22K
+   ============================== */
+
+/* Thiết lập chung */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #173b65;
+    --primary-light: #eaf1f8;
+    --text: #263445;
+    --muted: #65758b;
+    --border: #dce4ed;
+    --background: #f0f3f8;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--background);
+    padding: 40px 20px;
+}
+
+/* Khung CV */
+.resume {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 55px 65px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(23, 59, 101, 0.10);
+}
+
+/* Phần đầu CV */
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 28px;
+    border-bottom: 3px solid var(--primary);
+}
+
+.resume-label {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.resume-header h1 {
+    color: var(--primary);
+    font-size: 36px;
+    font-weight: 750;
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+.job-title {
+    color: var(--muted);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Nút in và lưu PDF */
+.print-button {
+    flex-shrink: 0;
+    padding: 10px 17px;
+    border: none;
+    border-radius: 7px;
+    background: var(--primary);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.print-button:hover {
+    background: #245a91;
+    transform: translateY(-2px);
+}
+
+.print-button:focus-visible {
+    outline: 3px solid #8db9eb;
+    outline-offset: 3px;
+}
+
+/* Thông tin liên hệ */
+.contact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 28px;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.contact p {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-wrap: anywhere;
+}
+
+.contact strong {
+    color: var(--primary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.contact span {
+    color: var(--text);
+    font-size: 14px;
+}
+
+/* Các mục nội dung */
+.resume-section {
+    margin-top: 30px;
+}
+
+.resume-section h2 {
+    position: relative;
+    color: var(--primary);
+    font-size: 19px;
+    font-weight: 750;
+    padding-bottom: 10px;
+    margin-bottom: 17px;
+    border-bottom: 1px solid var(--border);
+}
+
+.resume-section h2::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 20px;
+    margin-right: 10px;
+    background: var(--primary);
+    border-radius: 3px;
+    vertical-align: -3px;
+}
+
+.resume-section > p {
+    text-align: justify;
+}
+
+/* Học vấn và dự án */
+.entry {
+    margin-bottom: 20px;
+}
+
+.entry-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 5px;
+}
+
+.entry-heading h3 {
+    color: #243c58;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.entry-heading span {
+    flex-shrink: 0;
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+}
+
+.entry > p {
+    margin-top: 5px;
+}
+
+.entry-note {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* Danh sách kỹ năng */
+.skills {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skills li {
+    position: relative;
+    padding: 12px 15px 12px 36px;
+    background: #f5f8fc;
+    border-left: 3px solid var(--primary);
+    border-radius: 0 6px 6px 0;
+}
+
+.skills li::before {
+    content: "✓";
+    position: absolute;
+    left: 13px;
+    top: 11px;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.skills strong {
+    color: var(--primary);
+}
+
+/* Chân trang */
+.resume-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 40px;
+    padding-top: 17px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Responsive cho máy tính bảng và điện thoại */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .resume {
+        padding: 35px 28px;
+    }
+
+    .resume-header h1 {
+        font-size: 29px;
+    }
+
+    .resume-header {
+        align-items: flex-start;
+    }
+
+    .contact {
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px 6px;
+        font-size: 14px;
+    }
+
+    .resume {
+        padding: 25px 18px;
+        border-radius: 8px;
+    }
+
+    .resume-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .resume-header h1 {
+        font-size: 27px;
+        overflow-wrap: anywhere;
+    }
+
+    .job-title {
+        font-size: 14px;
+    }
+
+    .contact {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .entry-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .resume-section h2 {
+        font-size: 17px;
+    }
+
+    .skills li {
+        padding-right: 10px;
+    }
+}
+
+/* Tối ưu khi in hoặc lưu CV thành PDF */
+@media print {
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    body {
+        padding: 0;
+        background: #ffffff;
+        color: #263445;
+        font-size: 11pt;
+        line-height: 1.55;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .resume {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .print-button {
+        display: none !important;
+    }
+
+    .resume-header,
+    .contact,
+    .entry,
+    .skills li,
+    .resume-footer {
+        break-inside: avoid;
+    }
+
+    .resume-section h2 {
+        break-after: avoid;
+    }
+
+    .resume-section {
+        margin-top: 22px;
+    }
+
+    .resume-header h1 {
+        font-size: 28pt;
+    }
+
+    .skills li {
+        background: #f5f8fc !important;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
